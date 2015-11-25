@@ -12,44 +12,27 @@ import vehiculos.Concesionario;
 import vehiculos.Factura;
 import vehiculos.Vehiculo;
 import vehiculos.Telefonos;
+import vehiculos.ConsultaCliente;
 /**
  *
  * @author peace
  */
 public class FormConsultaClie extends javax.swing.JFrame {
     
-    ;
     
-    Vendedor v = new Vendedor();
-    Vendedor[] miListav = v.crudListaVend();
     
-    Cliente cl = new Cliente();
-    Cliente[] miListacl = cl.CrudListaCliente();
-    
-    Concesionario cons = new Concesionario();
-    Concesionario[] miListacons = cons.crudListaConsecionario();
-        
-    Cent_Pobl cp = new Cent_Pobl();
-    Cent_Pobl[] miListacp = cp.CrudListaCent_Pobl();
-    
-    Factura fact = new Factura();
-    Factura[] miListafact = fact.CrudListaFactura();
-    
-    Vehiculo vh = new Vehiculo();
-    Vehiculo[] miListavh = vh.CrudListaVehiculo();
-    
-    Telefonos tele = new Telefonos();
-    Telefonos[] miListatele = tele.CrudListaTelefonos();
+    ConsultaCliente i = new ConsultaCliente();
+    ConsultaCliente[] miLista = i.CrudListaC();
     
     
     public FormConsultaClie() {
         initComponents();
         DefaultComboBoxModel m= new DefaultComboBoxModel();
         this.jList.setModel(m);
-        for(int intCont = 0; intCont < miListafact.length; intCont++){
-        m.addElement(miListacl[intCont].getnume_iden()+ "-"+miListacl[intCont].getprim_nomb()+"-"+miListacl[intCont].getsegu_nomb()+"-"+miListacl[intCont].getprim_apel()
-        +"-"+miListacl[intCont].getsegu_apel()+"-"+miListatele[intCont].getnum_tele()+"-"+miListavh[intCont].getmarc_vehi()+"-"+miListavh[intCont].getmode_vehi()+"-"+miListav[intCont].getStringNomVend()
-        +"-"+miListacp[intCont].getnomb_muni()+"-"+miListacp[intCont].getnomb_dpto()+"-"+miListafact[intCont].getfech_fact());
+        for(int intCont = 0; intCont < miLista.length; intCont++){
+        m.addElement(miLista[intCont].getcons_factu()+ "-"+miLista[intCont].getpnomclien()+"-"+miLista[intCont].getsnomclien()+"-"+miLista[intCont].getprimape()
+                +"-"+miLista[intCont].getfechfa()+"-"+miLista[intCont].gettelecl()+"-"+miLista[intCont].getmarcvehic()+"-"+miLista[intCont].getmodelve()+"-"+miLista[intCont].getvende()
+        +"-"+miLista[intCont].getmunic()+"-"+miLista[intCont].getdepto());
         }
     }
 

@@ -59,5 +59,9 @@ $RECYCLE.BIN/
 *.lnk
 
 /dist/
+<<<<<<< HEAD
 
 *.properties
+=======
+/build/
+>>>>>>> origin/master

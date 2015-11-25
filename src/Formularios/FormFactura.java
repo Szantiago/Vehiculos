@@ -53,39 +53,37 @@ public class FormFactura extends javax.swing.JFrame {
         for(int intcont=0; intcont < miListaf.length; intcont++ ){
         jCombof.addItem(miListaf[intcont].getcons_fact()+" - "+ miListaf[intcont].getnume_fact()
                 +" - "+ miListaf[intcont].getfech_fact()+" - "+ miListaf[intcont].getcons_clie()
-                +" - "+ miListaf[intcont].getcons_vend()+" - "+" - "+miListaf[intcont].getcons_cons()
-                +" - "+miListaf[intcont].getcons_vehi()+" - "+miListaf[intcont].getestado());                
+                +" - "+ miListaf[intcont].getcons_vend()+" - "+miListaf[intcont].getcons_cons()
+                +" - "+miListaf[intcont].getcons_vehi());                
             }
         
         cl=true;
         Cliente[] miListacl =micl.CrudListaCliente();
         for(int intcont=0; intcont < miListacl.length; intcont++ ){
-        jCombocl.addItem(miListacl[intcont].getcons_clie()+" - "+miListacl[intcont].getprim_nomb()+" - "
-         + miListacl[intcont].getprim_apel()+miListacl[intcont].getestado());  
+        jCombocl.addItem(miListacl[intcont].getcons_clie()+" - "+miListacl[intcont].getprim_nomb()+" - "+ miListacl[intcont].getprim_apel());  
             }
         
         v=true;
         Vendedor[] miListav =miv.crudListaVend();        
         for(int intcont=0; intcont < miListav.length; intcont++ ){
-        jCombov.addItem(miListav[intcont].getIntConsVend()+ miListav[intcont].getStringNomVend());  
+        jCombov.addItem(miListav[intcont].getIntConsVend()+" - "+miListav[intcont].getStringNomVend());  
 
             }
         
         c=true;
-        Concesionario[] miListac =mic.crudListaConsecionario();
-        for(int intcont=0; intcont < miListac.length; intcont++ ){
-        jComboc.addItem(miListac[intcont].getcons_cons()+" - "+miListac[intcont].getdire_cons()+ miListac[intcont].getestado());
-
-            }
+        Concesionario[] miListac =mic.crudListaConsecionario();           
+        for(int cont=0; cont < miListac.length; cont++ ){
+        jComboc.addItem(miListac[cont].getcons_cons()+" - "+miListac[cont].getnomb_cons());
+        }
         
         vh=true;
         Vehiculo[] miListavh=mivh.CrudListaVehiculo();
         for(int intcont=0; intcont < miListavh.length; intcont++ ){
-        jCombovh.addItem(miListavh[intcont].getmarc_vehi()+" - "+miListavh[intcont].getmode_vehi()+ miListavh[intcont].getplac_vehi()
-                + miListavh[intcont].getcolo_vehi() + miListavh[intcont].getestado());    
+        jCombovh.addItem(miListavh[intcont].getmarc_vehi()+" - "+miListavh[intcont].getmode_vehi()+" - "+ miListavh[intcont].getplac_vehi()
+                +" - "+ miListavh[intcont].getcolo_vehi());    
 
             }
-        }    
+        }   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -389,25 +387,16 @@ public class FormFactura extends javax.swing.JFrame {
         if(f){
         Factura[] miListaf = mif.CrudListaFactura();
         mif = miListaf[jCombof.getSelectedIndex()];
- 
-        Factura mf = new Factura();
-        Factura[] lf = mf.CrudListaFactura();
-        mf=lf[jCombof.getSelectedIndex()];
-        int var=mf.getcons_fact();
 
         txtnumfact.setText(mif.getnume_fact());
         txtfecha.setText(mif.getfech_fact());
-        txtc.setText(" " + mif.getcons_clie());
-        txtv.setText(" " + mif.getcons_vend());
-        txtcons.setText(" " + mif.getcons_cons());
-        txtvh.setText(" " + mif.getcons_vehi());
+        txtbuscar.setText(""+mif.getcons_clie());
+        txtc.setText(""+mif.getcons_clie());
+        txtc.setText(""+mif.getcons_clie());
+        txtv.setText(""+mif.getcons_vend());
+        txtcons.setText(""+mif.getcons_cons());
+        txtvh.setText(""+mif.getcons_vehi());
         txtestado.setText(""+mif.getestado());
-        jCombocl.setSelectedIndex(Integer.parseInt(txtc.getText()));
-        jCombov.setSelectedIndex(Integer.parseInt(txtv.getText()));
-        jComboc.setSelectedIndex(Integer.parseInt(txtcons.getText()));
-        jCombovh.setSelectedIndex(Integer.parseInt(txtvh.getText()));
-        jComboestado.setSelectedItem(txtestado.getText());
-;
         
         btninsertar.setEnabled(true); // Se mantiene el botón insertar como verdadero
         btnactualizar.setEnabled(true); // Se mantiene el botón actualizar como verdadero
@@ -416,9 +405,14 @@ public class FormFactura extends javax.swing.JFrame {
 
     private void btninsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btninsertarActionPerformed
         // TODO add your handling code here:
-        mif.CrudInsertarFactura(txtnumfact.getText(), txtfecha.getText(), Integer.parseInt(txtc.getText()), Integer.parseInt(txtv.getText()), 
-                Integer.parseInt(txtcons.getText()), Integer.parseInt(txtvh.getText()), jComboestado.getSelectedItem().toString());                                                                                                  
-       
+        int clie =Integer.parseInt(txtc.getText());
+        int vend =Integer.parseInt(txtv.getText());
+        int conse =Integer.parseInt(txtcons.getText());
+        int vehi =Integer.parseInt(txtvh.getText());
+        
+        mif.CrudInsertarFactura(txtnumfact.getText(), txtfecha.getText(),clie, 
+                vend, conse, vehi, txtestado.getText());                                                                                                       
+        
         txtc.setText("");
         txtv.setText("");
         txtcons.setText("");
@@ -436,6 +430,7 @@ public class FormFactura extends javax.swing.JFrame {
         mif.CrudActualizarFactura(mif.getcons_fact(), txtnumfact.getText(), txtfecha.getText(),Integer.parseInt(txtc.getText()), 
                 Integer.parseInt(txtv.getText()),Integer.parseInt(txtcons.getText()), Integer.parseInt(txtvh.getText()), txtestado.getText());
        
+        
         txtnumfact.setText("");  
         txtfecha.setText(""); 
         txtc.setText("");
@@ -445,11 +440,12 @@ public class FormFactura extends javax.swing.JFrame {
         txtestado.setText(""); 
         
         btninsertar.setEnabled(false);   
+      
     }//GEN-LAST:event_btnactualizarActionPerformed
 
     private void jComboclActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboclActionPerformed
         // TODO add your handling code here:
-        if(cl){
+       if(cl){
         micl= miListacl[jCombocl.getSelectedIndex()];
         Cliente mc = new Cliente();
         Cliente[] lc = mc.CrudListaCliente();
@@ -491,7 +487,7 @@ public class FormFactura extends javax.swing.JFrame {
         mcs=lcs[jComboc.getSelectedIndex()];
         int var=mcs.getcons_cons();
         
-        txtc.setText(jComboc.getSelectedItem().toString());
+        txtcons.setText(jComboc.getSelectedItem().toString());
         Concesionario[] miLista = mic.crudListaConsecionario();
         mic = miLista[jComboc.getSelectedIndex()];
         
@@ -520,7 +516,7 @@ public class FormFactura extends javax.swing.JFrame {
 
     private void btnlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarActionPerformed
     
-        f=false;      
+                f=false;      
         txtc.setText(""); 
         txtv.setText("");   
         txtcons.setText(""); 
@@ -609,35 +605,35 @@ public class FormFactura extends javax.swing.JFrame {
             }
         
         vh=true; // 
+    
     }//GEN-LAST:event_btnlimpiarActionPerformed
 
     private void txtestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtestadoActionPerformed
         // TODO add your handling code here:
-        txtestado.setText(jComboestado.getSelectedItem().toString());
+
     }//GEN-LAST:event_txtestadoActionPerformed
 
     private void txtcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcActionPerformed
         // TODO add your handling code here:
-        txtc.setText(jCombocl.getSelectedItem().toString());
+
     }//GEN-LAST:event_txtcActionPerformed
 
     private void txtvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtvActionPerformed
         // TODO add your handling code here:
-        txtv.setText(jCombov.getSelectedItem().toString());
+
     }//GEN-LAST:event_txtvActionPerformed
 
     private void txtconsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtconsActionPerformed
         // TODO add your handling code here:
-        txtcons.setText(jComboc.getSelectedItem().toString());
+
     }//GEN-LAST:event_txtconsActionPerformed
 
     private void txtvhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtvhActionPerformed
         // TODO add your handling code here:
-        txtvh.setText(jCombovh.getSelectedItem().toString());
+
     }//GEN-LAST:event_txtvhActionPerformed
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
-        // TODO add your handling code here:
         mif.CrudBuscarFactura((Integer.parseInt(txtbuscar.getText())));
         
         jCombof.setSelectedIndex(mif.getcons_fact());
@@ -654,6 +650,7 @@ public class FormFactura extends javax.swing.JFrame {
 
     private void jComboestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboestadoActionPerformed
         // TODO add your handling code here:
+                txtestado.setText(jComboestado.getSelectedItem().toString());
     }//GEN-LAST:event_jComboestadoActionPerformed
 
     /**

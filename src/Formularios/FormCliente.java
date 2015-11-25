@@ -46,7 +46,7 @@ public class FormCliente extends javax.swing.JFrame {
             }
         
         for(int intcont=0; intcont < miListaCP.length; intcont++ ){
-        jcomboCP.addItem(miListaCP[intcont].getconsm()+" - "+miListaCP[intcont].getcodi_pobl()+" - "+miListaCP[intcont].getnomb_pobl());  
+        jcomboCP.addItem(miListaCP[intcont].getcons_muni()+" - "+miListaCP[intcont].getcodi_pobl()+" - "+miListaCP[intcont].getnomb_pobl());  
         jcomboCP.setSelectedIndex(0);
             }
     }

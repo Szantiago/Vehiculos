@@ -4,18 +4,53 @@
  * and open the template in the editor.
  */
 package Formularios;
-
+import javax.swing.DefaultComboBoxModel;
+import vehiculos.Vendedor;
+import vehiculos.Cliente;
+import vehiculos.Cent_Pobl;
+import vehiculos.Concesionario;
+import vehiculos.Factura;
+import vehiculos.Vehiculo;
+import vehiculos.Telefonos;
 /**
  *
  * @author peace
  */
 public class FormConsultaClie extends javax.swing.JFrame {
-
-    /**
-     * Creates new form FormConsultaClie
-     */
+    
+    ;
+    
+    Vendedor v = new Vendedor();
+    Vendedor[] miListav = v.crudListaVend();
+    
+    Cliente cl = new Cliente();
+    Cliente[] miListacl = cl.CrudListaCliente();
+    
+    Concesionario cons = new Concesionario();
+    Concesionario[] miListacons = cons.crudListaConsecionario();
+        
+    Cent_Pobl cp = new Cent_Pobl();
+    Cent_Pobl[] miListacp = cp.CrudListaCent_Pobl();
+    
+    Factura fact = new Factura();
+    Factura[] miListafact = fact.CrudListaFactura();
+    
+    Vehiculo vh = new Vehiculo();
+    Vehiculo[] miListavh = vh.CrudListaVehiculo();
+    
+    Telefonos tele = new Telefonos();
+    Telefonos[] miListatele = tele.CrudListaTelefonos();
+    
+    
     public FormConsultaClie() {
         initComponents();
+        DefaultComboBoxModel m= new DefaultComboBoxModel();
+        this.jList.setModel(m);
+        for(int intCont = 0; intCont < miListafact.length; intCont++){
+        m.addElement(miListacl[intCont].getnume_iden()+ "-"+miListacl[intCont].getprim_nomb()+"-"+miListacl[intCont].getsegu_nomb()+"-"+miListacl[intCont].getprim_apel()
+        +"-"+miListacl[intCont].getsegu_apel()+"-"+miListatele[intCont].getnum_tele()+"-"+miListavh[intCont].getmarc_vehi()+"-"+miListavh[intCont].getmode_vehi()+"-"+miListav[intCont].getStringNomVend()
+        +"-"+miListacp[intCont].getnomb_muni()+"-"+miListacp[intCont].getnomb_dpto()+"-"+miListafact[intCont].getfech_fact());
+        }
     }
 
     /**
@@ -27,15 +62,18 @@ public class FormConsultaClie extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtconsulta = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         btnVolver = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList = new javax.swing.JList();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Consulta: Cliente");
 
         btnVolver.setText("Volver");
+
+        jScrollPane1.setViewportView(jList);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -44,23 +82,23 @@ public class FormConsultaClie extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtconsulta)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnVolver))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(0, 298, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtconsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnVolver)
                 .addGap(12, 12, 12))
         );
@@ -106,6 +144,7 @@ public class FormConsultaClie extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField txtconsulta;
+    private javax.swing.JList jList;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

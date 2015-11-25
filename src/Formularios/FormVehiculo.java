@@ -330,7 +330,7 @@ public class FormVehiculo extends javax.swing.JFrame {
 
     private void btninsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btninsertarActionPerformed
         // TODO add your handling code here:
-        Realizado e = new Realizado();
+        FormInicio e = new FormInicio();
         FormVehiculo h = new FormVehiculo();
 
         e.setVisible(true);
@@ -371,7 +371,7 @@ public class FormVehiculo extends javax.swing.JFrame {
 
     private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
         // TODO add your handling code here:
-        Realizado e = new Realizado();
+        FormInicio e = new FormInicio();
         FormVehiculo h = new FormVehiculo();
 
         e.setVisible(true);
@@ -393,7 +393,7 @@ public class FormVehiculo extends javax.swing.JFrame {
 
     private void btnlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarActionPerformed
         // TODO add your handling code here:
-        Realizado e = new Realizado();
+        FormInicio e = new FormInicio();
         FormVehiculo h = new FormVehiculo();
 
         e.setVisible(true);

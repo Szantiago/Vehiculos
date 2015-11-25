@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Formularios;
-import java.awt.Color;
+
 import vehiculos.Factura;
 import vehiculos.Concesionario;
 import vehiculos.Cliente;
@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
  * @author peace
  */
 public class FormFactura extends javax.swing.JFrame {
+    
     Factura mif = new Factura(); 
     Factura [] miListaf =  mif.CrudListaFactura();
 
@@ -54,7 +55,7 @@ public class FormFactura extends javax.swing.JFrame {
         jCombof.addItem(miListaf[intcont].getcons_fact()+" - "+ miListaf[intcont].getnume_fact()
                 +" - "+ miListaf[intcont].getfech_fact()+" - "+ miListaf[intcont].getcons_clie()
                 +" - "+ miListaf[intcont].getcons_vend()+" - "+miListaf[intcont].getcons_cons()
-                +" - "+miListaf[intcont].getcons_vehi());                
+                +" - "+miListaf[intcont].getcons_vehi()+" - "+miListaf[intcont].getestado());                
             }
         
         cl=true;
@@ -95,9 +96,9 @@ public class FormFactura extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jCombof = new javax.swing.JComboBox<>();
+        jCombof = new javax.swing.JComboBox<String>();
         jLabel2 = new javax.swing.JLabel();
-        jComboestado = new javax.swing.JComboBox<>();
+        jComboestado = new javax.swing.JComboBox<String>();
         txtestado = new javax.swing.JTextField();
         txtbuscar = new javax.swing.JTextField();
         btnbuscar = new javax.swing.JButton();
@@ -107,13 +108,13 @@ public class FormFactura extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txtfecha = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jCombocl = new javax.swing.JComboBox<>();
+        jCombocl = new javax.swing.JComboBox<String>();
         jLabel7 = new javax.swing.JLabel();
-        jCombov = new javax.swing.JComboBox<>();
+        jCombov = new javax.swing.JComboBox<String>();
         jLabel8 = new javax.swing.JLabel();
-        jComboc = new javax.swing.JComboBox<>();
+        jComboc = new javax.swing.JComboBox<String>();
         jLabel9 = new javax.swing.JLabel();
-        jCombovh = new javax.swing.JComboBox<>();
+        jCombovh = new javax.swing.JComboBox<String>();
         btninsertar = new javax.swing.JButton();
         txtc = new javax.swing.JTextField();
         txtv = new javax.swing.JTextField();
@@ -135,7 +136,7 @@ public class FormFactura extends javax.swing.JFrame {
 
         jLabel2.setText("Estado");
 
-        jComboestado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "activo", "inactivo" }));
+        jComboestado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "activo", "inactivo" }));
         jComboestado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboestadoActionPerformed(evt);
@@ -272,7 +273,11 @@ public class FormFactura extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnbuscar))))
+                                .addComponent(btnbuscar)
+                                .addGap(49, 49, 49)
+                                .addComponent(txtc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtv, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btninsertar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -291,9 +296,7 @@ public class FormFactura extends javax.swing.JFrame {
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jCombocl, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5)
@@ -304,9 +307,7 @@ public class FormFactura extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jCombov, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jCombov, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -321,7 +322,7 @@ public class FormFactura extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtcons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtvh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -329,7 +330,9 @@ public class FormFactura extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnbuscar))
+                    .addComponent(btnbuscar)
+                    .addComponent(txtc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -349,9 +352,7 @@ public class FormFactura extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(jCombocl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(jCombov, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCombov, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -387,17 +388,18 @@ public class FormFactura extends javax.swing.JFrame {
         if(f){
         Factura[] miListaf = mif.CrudListaFactura();
         mif = miListaf[jCombof.getSelectedIndex()];
-
-        txtnumfact.setText(mif.getnume_fact());
-        txtfecha.setText(mif.getfech_fact());
-        txtbuscar.setText(""+mif.getcons_clie());
-        txtc.setText(""+mif.getcons_clie());
+        
+        
+        txtbuscar.setText(""+mif.getcons_fact());
+        txtnumfact.setText(""+mif.getnume_fact());
+        txtfecha.setText(""+mif.getfech_fact());
         txtc.setText(""+mif.getcons_clie());
         txtv.setText(""+mif.getcons_vend());
         txtcons.setText(""+mif.getcons_cons());
         txtvh.setText(""+mif.getcons_vehi());
         txtestado.setText(""+mif.getestado());
         
+        jComboestado.setSelectedItem(txtestado.getText());
         btninsertar.setEnabled(true); // Se mantiene el botón insertar como verdadero
         btnactualizar.setEnabled(true); // Se mantiene el botón actualizar como verdadero
         }
@@ -423,11 +425,12 @@ public class FormFactura extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Se creo el registro", "Creacion de Facturas",2);
         
         btnactualizar.setEnabled(false); // Se mantiene el botón actualizar como falso
+        
     }//GEN-LAST:event_btninsertarActionPerformed
 
     private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
                      
-        mif.CrudActualizarFactura(mif.getcons_fact(), txtnumfact.getText(), txtfecha.getText(),Integer.parseInt(txtc.getText()), 
+        mif.CrudActualizarFactura(Integer.parseInt(txtbuscar.getText()), txtnumfact.getText(), txtfecha.getText(),Integer.parseInt(txtc.getText()), 
                 Integer.parseInt(txtv.getText()),Integer.parseInt(txtcons.getText()), Integer.parseInt(txtvh.getText()), txtestado.getText());
        
         
@@ -440,21 +443,19 @@ public class FormFactura extends javax.swing.JFrame {
         txtestado.setText(""); 
         
         btninsertar.setEnabled(false);   
-      
+     
     }//GEN-LAST:event_btnactualizarActionPerformed
 
     private void jComboclActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboclActionPerformed
         // TODO add your handling code here:
        if(cl){
-        micl= miListacl[jCombocl.getSelectedIndex()];
+        
         Cliente mc = new Cliente();
         Cliente[] lc = mc.CrudListaCliente();
         mc=lc[jCombocl.getSelectedIndex()];
-        int var=mc.getcons_clie();
+        int var = mc.getcons_clie();
         
-        txtc.setText(jCombocl.getSelectedItem().toString());
-        Cliente[] miLista = micl.CrudListaCliente();
-        micl = miLista[jCombocl.getSelectedIndex()];
+        txtc.setText(""+mc.getcons_clie());
         
         btninsertar.setEnabled(true); 
         btnactualizar.setEnabled(true); 
@@ -465,14 +466,14 @@ public class FormFactura extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(v){
             miv= miListav[jCombov.getSelectedIndex()];
-        Vendedor mv = new Vendedor();
-        Vendedor[] lv = mv.crudListaVend();
+            Vendedor mv = new Vendedor();
+            Vendedor[] lv = mv.crudListaVend();
+            
         mv=lv[jCombov.getSelectedIndex()];
         int var=mv.getIntConsVend();
         
-        txtv.setText(jCombov.getSelectedItem().toString());
-        Vendedor[] miLista = miv.crudListaVend();
-        miv = miLista[jCombov.getSelectedIndex()];
+        txtv.setText(""+mv.getIntConsVend());
+        
         
         btninsertar.setEnabled(true); 
         btnactualizar.setEnabled(true); 
@@ -481,15 +482,15 @@ public class FormFactura extends javax.swing.JFrame {
 
     private void jCombocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCombocActionPerformed
         if(c){
-            mic= miListac[jComboc.getSelectedIndex()];
-        Concesionario mcs = new Concesionario();
-        Concesionario[] lcs = mcs.crudListaConsecionario();
+            
+            Concesionario mcs = new Concesionario();
+            Concesionario[] lcs = mcs.crudListaConsecionario();
+            
         mcs=lcs[jComboc.getSelectedIndex()];
         int var=mcs.getcons_cons();
         
-        txtcons.setText(jComboc.getSelectedItem().toString());
-        Concesionario[] miLista = mic.crudListaConsecionario();
-        mic = miLista[jComboc.getSelectedIndex()];
+        txtcons.setText(""+mcs.getcons_cons());
+        
         
         btninsertar.setEnabled(true); 
         btnactualizar.setEnabled(true); 
@@ -499,15 +500,14 @@ public class FormFactura extends javax.swing.JFrame {
     private void jCombovhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCombovhActionPerformed
 
         if(vh){
-            mivh= miListavh[jCombovh.getSelectedIndex()];
-        Vehiculo mvh = new Vehiculo();
-        Vehiculo[] lvh = mvh.CrudListaVehiculo();
+            Vehiculo mvh = new Vehiculo();
+            Vehiculo[] lvh = mvh.CrudListaVehiculo();
+            
         mvh=lvh[jCombovh.getSelectedIndex()];
         int varInD=mvh.getcons_vehi();
         
-        txtvh.setText(jCombovh.getSelectedItem().toString());
-        Vehiculo[] miLista = mivh.CrudListaVehiculo();
-        mivh = miLista[jCombovh.getSelectedIndex()];
+        txtvh.setText(""+mvh.getcons_vehi());
+        
         
         btninsertar.setEnabled(true); 
         btnactualizar.setEnabled(true); 
@@ -537,7 +537,7 @@ public class FormFactura extends javax.swing.JFrame {
                 +" - "+ miLista[intcont].getcons_vend()+" - "+miLista[intcont].getcons_cons()
                 +" - "+ miLista[intcont].getcons_vehi()+" - "+miLista[intcont].getnume_fact()
                 +" - "+miLista[intcont].getfech_fact()+" - "+miLista[intcont].getestado()); 
-        jCombof.setSelectedIndex(0); 
+        
             }           
         f=true;
 //.......................................................................................................................
@@ -553,7 +553,7 @@ public class FormFactura extends javax.swing.JFrame {
         for(int intcont=0; intcont < miLista2.length; intcont++ ){
         jCombocl.addItem(miLista2[intcont].getcons_clie()+" - "+miLista2[intcont].getprim_nomb()+" - "
          + miLista2[intcont].getprim_apel()+" - "+miLista2[intcont].getestado());    
-        jCombocl.setSelectedIndex(0); 
+         
             }
         cl=true; 
 //.......................................................................................................................        
@@ -568,7 +568,7 @@ public class FormFactura extends javax.swing.JFrame {
         for(int intcont=0; intcont < miLista3.length; intcont++ ){
         jCombov.addItem(miLista3[intcont].getIntConsVend()+" - "+miLista3[intcont].getStringNomVend()+" - "+miLista3[intcont].getIntTeleVend()
         +" - "+miLista3[intcont].getestado());    
-        jCombov.setSelectedIndex(0);
+        
             }
         v=true; 
 //.......................................................................................................................
@@ -584,7 +584,7 @@ public class FormFactura extends javax.swing.JFrame {
         for(int intcont=0; intcont < miLista4.length; intcont++ ){
         jComboc.addItem(miLista4[intcont].getcons_cons()+" - "+miLista4[intcont].getnomb_cons()+" - "+miLista4[intcont].getcodi_pobl()
         +" - "+miLista4[intcont].getdire_cons()+" - "+miLista4[intcont].getestado());    
-        jComboc.setSelectedIndex(0); 
+         
             }
         
         c=true; 
@@ -601,7 +601,7 @@ public class FormFactura extends javax.swing.JFrame {
         for(int intcont=0; intcont < miLista5.length; intcont++ ){
         jCombovh.addItem(miLista5[intcont].getcons_vehi()+" - "+miLista5[intcont].getmarc_vehi()+" - "+miLista5[intcont].getmode_vehi()+" - "+miLista5[intcont].getplac_vehi()
         +" - "+miLista5[intcont].getestado());    
-        jCombovh.setSelectedIndex(0); 
+         
             }
         
         vh=true; // 

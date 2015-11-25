@@ -16,6 +16,7 @@ public class Concesionario {
 	private String nomb_cons = new String();
 	private int cons_muni ;
         private String codi_pobl = new String();
+        private String codi_poblado = new String();
 	private int tele_cons;
 	private String dire_cons = new String();
         private String nombre_muni = new String();
@@ -68,15 +69,23 @@ public class Concesionario {
          }
          
          public void setcodi_pobl(String newVal){
-		nomb_cons = newVal;
-           } 
+		codi_pobl = newVal;
+           }
+         
+         public String getcodi_poblado(){
+		return codi_poblado;
+         }
+         
+         public void setcodi_poblado(String newVal){
+		codi_poblado = newVal;
+           }
          
          public int getcons_muni(){
 		return cons_muni;
          }
          
-         public void setcons_muni(){
-             
+         public void setcons_muni(int newVal){
+             cons_muni=newVal;
          }
          
          public String getnombre_muni (){
@@ -202,17 +211,17 @@ public class Concesionario {
                 strReg = conMiconexion.resultadoQuery(conMiconexion.queryConsulta(
                         "SELECT cons_muni, codi_pobl,nomb_muni FROM tabl_muni where cons_muni < 101 ORDER BY cons_muni;"));                
 
-                Concesionario [] Lista = new Concesionario[intTama];
+                Concesionario [] Listap = new Concesionario[intTama];
 
                 for (intCont = 0; intCont <(intTama); intCont++)
                 {
                     Concesionario PobladoAux = new Concesionario (Integer.parseInt(strReg[intCont][0]), 
                             strReg[intCont][1],strReg[intCont][2]);
                                         
-                    Lista[intCont] = PobladoAux;
+                    Listap[intCont] = PobladoAux;
 
                 }
-                return Lista;
+                return Listap;
             }
             catch(Exception ex)
             {

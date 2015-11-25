@@ -364,10 +364,10 @@ public class FormCliente extends javax.swing.JFrame {
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         // TODO add your handling code here:
-        Realizado e =new Realizado();
+        
         FormCliente h = new FormCliente();
                 
-                        e.setVisible(true);
+                        
                         h.setVisible(false);
                         setVisible(false);
         
@@ -408,7 +408,7 @@ public class FormCliente extends javax.swing.JFrame {
 
     private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
         // TODO add your handling code here:
-        Realizado e =new Realizado();
+        FormInicio e =new FormInicio();
         FormCliente h = new FormCliente();
                 
         e.setVisible(true);
@@ -437,7 +437,7 @@ public class FormCliente extends javax.swing.JFrame {
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         // TODO add your handling code here:
         
-        Realizado e =new Realizado();
+        FormInicio e =new FormInicio();
         FormCliente h = new FormCliente();
                 
         e.setVisible(true);

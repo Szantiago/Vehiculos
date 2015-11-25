@@ -67,10 +67,10 @@ public class FormVendedor extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jComboC = new javax.swing.JComboBox();
         btnlimpiar = new javax.swing.JButton();
-        jComboV = new javax.swing.JComboBox<>();
+        jComboV = new javax.swing.JComboBox<String>();
         btnvolver = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jComboEstado = new javax.swing.JComboBox<>();
+        jComboEstado = new javax.swing.JComboBox<String>();
         txtcons = new javax.swing.JTextField();
         txtconsvend = new javax.swing.JTextField();
         txtcv = new javax.swing.JTextField();
@@ -133,10 +133,15 @@ public class FormVendedor extends javax.swing.JFrame {
         });
 
         btnvolver.setText("Volver");
+        btnvolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnvolverActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Estado");
 
-        jComboEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "activo", "inactivo" }));
+        jComboEstado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "activo", "inactivo" }));
         jComboEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboEstadoActionPerformed(evt);
@@ -286,6 +291,13 @@ public class FormVendedor extends javax.swing.JFrame {
        
        
        JOptionPane.showMessageDialog(null, "Se creo el registro", "Creacion de Vendedores",2);//Mensaje de exito (dato 2)
+       
+       FormInicio h = new FormInicio();
+
+        FormVendedor c=new FormVendedor();
+        c.setVisible(false);
+        h.setVisible(true);
+        setVisible(false);
     }//GEN-LAST:event_btninsertarActionPerformed
 
     private void jComboCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboCActionPerformed
@@ -331,10 +343,10 @@ public class FormVendedor extends javax.swing.JFrame {
 
     private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
         // TODO add your handling code here:
-        Realizado e =new Realizado();
+        
         FormVehiculo h = new FormVehiculo();
                 
-                        e.setVisible(true);
+                       
                         h.setVisible(false);
                         setVisible(false);
         miV.crudActualizarVend(Integer.parseInt(txtcv.getText()),txtnomb.getText(),Integer.parseInt(txttel.getText()), Integer.parseInt(txtconsvend.getText()),jComboEstado.getSelectedItem().toString()); //Se importa el método y los parámetros necesarios
@@ -389,6 +401,15 @@ public class FormVendedor extends javax.swing.JFrame {
     private void txtconsvendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtconsvendActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtconsvendActionPerformed
+
+    private void btnvolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvolverActionPerformed
+       FormInicio h = new FormInicio();
+
+        FormVendedor c=new FormVendedor();
+        c.setVisible(false);
+        h.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_btnvolverActionPerformed
 
     /**
      * @param args the command line arguments

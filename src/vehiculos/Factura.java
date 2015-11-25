@@ -45,10 +45,6 @@ import javax.swing.JOptionPane;
                     return cons_fact;
             }
 
-            public void setcons_fact(int newVal){
-                    cons_fact = newVal;
-            }
-
             public String getnume_fact(){
                     return nume_fact;
             }
@@ -146,7 +142,7 @@ import javax.swing.JOptionPane;
                 
                 if(strReg[0][0] != null)
 	   {
-                con.queryUpdate("UPDATE tabl_fact SET nume_fact = '" + Nnume_fact + "', fech_fact = " + Nfech_fact + ", cons_clie = " + Ncons_clie 
+                con.queryUpdate("UPDATE tabl_fact SET nume_fact = '" + Nnume_fact + "', fech_fact = '" + Nfech_fact + "', cons_clie = " + Ncons_clie 
                         + ", cons_vend = " + Ncons_vend + ", cons_cons = " + Ncons_cons + ", cons_vehi = " + Ncons_vehi  
                         + ", estado = '" + Nestado+ "' WHERE cons_fact = " + Ncons_fact);
 
@@ -186,17 +182,12 @@ import javax.swing.JOptionPane;
             
             System.out.print("\n El tamaño es:" + intTama + "\n");
             
-             
+            Factura[] Lista = new Factura[intTama]; 
                         
             strReg = con.resultadoQuery(con.queryConsulta(
                     "SELECT cons_fact, nume_fact, fech_fact, cons_clie, cons_vend, cons_cons, cons_vehi, estado FROM tabl_fact ORDER BY cons_fact ;"));
             
-            
-            Factura[] Lista = new Factura[intTama];
-            
-              
-                
-           
+   
             for (intCont=0; intCont<(intTama); intCont++){
             Factura factAux = new Factura((Integer.parseInt(strReg[intCont][0])), strReg[intCont][1],
                     strReg[intCont][2],(Integer.parseInt(strReg[intCont][3])),

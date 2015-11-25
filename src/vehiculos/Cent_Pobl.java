@@ -43,11 +43,11 @@ public class Cent_Pobl {
             tipo_pobl = Itipo_pobl;
                    
             }
-    public int getcons_muni(){
+    public int getconsm(){
                     return cons_muni;
             }
 
-            public void setcons_muni(int newVal){
+            public void setconsm(int newVal){
                     cons_muni = newVal;
             }
 

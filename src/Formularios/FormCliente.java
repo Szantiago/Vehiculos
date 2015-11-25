@@ -46,7 +46,9 @@ public class FormCliente extends javax.swing.JFrame {
             }
         
         for(int intcont=0; intcont < miListaCP.length; intcont++ ){
-        jcomboCP.addItem(miListaCP[intcont].getconsm()+" - "+miListaCP[intcont].getcodi_pobl()+" - "+miListaCP[intcont].getnomb_pobl());  
+        jcomboCP.addItem(miListaCP[intcont].getconsm()+" - "+miListaCP[intcont].getcodi_dpto()+" - "+miListaCP[intcont].getcodi_muni()
+        +" - "+miListaCP[intcont].getcodi_pobl()+" - "+miListaCP[intcont].getnomb_dpto()+" - "+miListaCP[intcont].getnomb_muni()+" - "+miListaCP[intcont].getnomb_pobl()
+        +" - "+miListaCP[intcont].gettipo_pobl());  
         jcomboCP.setSelectedIndex(0);
             }
     }
@@ -165,6 +167,11 @@ public class FormCliente extends javax.swing.JFrame {
         });
 
         btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
 
         btnInsertar.setText("Insertar");
         btnInsertar.addActionListener(new java.awt.event.ActionListener() {
@@ -522,6 +529,14 @@ public class FormCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
         txtestado.setText(jComboEstado.getSelectedItem().toString());
     }//GEN-LAST:event_jComboEstadoActionPerformed
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        FormInicio i = new FormInicio();
+        FormCliente c = new FormCliente();
+        c.setVisible(false);
+        i.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_btnVolverActionPerformed
 
     /**
      * @param args the command line arguments

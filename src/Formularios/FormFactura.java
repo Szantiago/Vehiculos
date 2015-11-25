@@ -96,9 +96,9 @@ public class FormFactura extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jCombof = new javax.swing.JComboBox<String>();
+        jCombof = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        jComboestado = new javax.swing.JComboBox<String>();
+        jComboestado = new javax.swing.JComboBox<>();
         txtestado = new javax.swing.JTextField();
         txtbuscar = new javax.swing.JTextField();
         btnbuscar = new javax.swing.JButton();
@@ -108,13 +108,13 @@ public class FormFactura extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txtfecha = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jCombocl = new javax.swing.JComboBox<String>();
+        jCombocl = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
-        jCombov = new javax.swing.JComboBox<String>();
+        jCombov = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        jComboc = new javax.swing.JComboBox<String>();
+        jComboc = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
-        jCombovh = new javax.swing.JComboBox<String>();
+        jCombovh = new javax.swing.JComboBox<>();
         btninsertar = new javax.swing.JButton();
         txtc = new javax.swing.JTextField();
         txtv = new javax.swing.JTextField();
@@ -136,7 +136,7 @@ public class FormFactura extends javax.swing.JFrame {
 
         jLabel2.setText("Estado");
 
-        jComboestado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "activo", "inactivo" }));
+        jComboestado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "activo", "inactivo" }));
         jComboestado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboestadoActionPerformed(evt);
@@ -250,6 +250,11 @@ public class FormFactura extends javax.swing.JFrame {
         });
 
         btnvolver.setText("Volver");
+        btnvolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnvolverActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -652,6 +657,14 @@ public class FormFactura extends javax.swing.JFrame {
         // TODO add your handling code here:
                 txtestado.setText(jComboestado.getSelectedItem().toString());
     }//GEN-LAST:event_jComboestadoActionPerformed
+
+    private void btnvolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvolverActionPerformed
+       FormInicio i = new FormInicio();
+        FormFactura c = new FormFactura();
+        c.setVisible(false);
+        i.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_btnvolverActionPerformed
 
     /**
      * @param args the command line arguments

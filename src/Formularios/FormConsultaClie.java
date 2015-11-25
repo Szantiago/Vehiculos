@@ -72,6 +72,11 @@ public class FormConsultaClie extends javax.swing.JFrame {
         jLabel1.setText("Consulta: Cliente");
 
         btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
 
         jScrollPane1.setViewportView(jList);
 
@@ -105,6 +110,14 @@ public class FormConsultaClie extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        FormInicio i = new FormInicio();
+        FormConsultaClie c = new FormConsultaClie();
+        c.setVisible(false);
+        i.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_btnVolverActionPerformed
 
     /**
      * @param args the command line arguments

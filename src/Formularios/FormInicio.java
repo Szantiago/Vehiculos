@@ -27,30 +27,46 @@ public class FormInicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btncons = new javax.swing.JButton();
+        btnclie = new javax.swing.JButton();
+        btnvend = new javax.swing.JButton();
+        btnvehi = new javax.swing.JButton();
+        btnfact = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Concesionario");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btncons.setText("Concesionario");
+        btncons.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnconsActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Clientes");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnclie.setText("Clientes");
+        btnclie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnclieActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Vendedores");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnvend.setText("Vendedores");
+        btnvend.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnvendActionPerformed(evt);
+            }
+        });
+
+        btnvehi.setText("Vehiculos");
+        btnvehi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnvehiActionPerformed(evt);
+            }
+        });
+
+        btnfact.setText("Factura");
+        btnfact.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnfactActionPerformed(evt);
             }
         });
 
@@ -59,51 +75,77 @@ public class FormInicio extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
-                .addContainerGap(261, Short.MAX_VALUE))
+                    .addComponent(btncons)
+                    .addComponent(btnvehi)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnclie)
+                            .addComponent(btnvend))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                        .addComponent(btnfact, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jButton1)
+                .addContainerGap()
+                .addComponent(btncons)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnfact, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnclie)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnvend)))
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addComponent(btnvehi)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnconsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnconsActionPerformed
         FormInicio i = new FormInicio();
         FormConcesionario c = new FormConcesionario();
         i.setVisible(false);
         c.setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnconsActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnclieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclieActionPerformed
         FormInicio i = new FormInicio();
         FormCliente c = new FormCliente();
         i.setVisible(false);
         c.setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnclieActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnvendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvendActionPerformed
         FormInicio i = new FormInicio();
         FormVendedor v = new FormVendedor();
         i.setVisible(false);
         v.setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnvendActionPerformed
+
+    private void btnvehiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvehiActionPerformed
+        FormInicio i = new FormInicio();
+        FormVehiculo c = new FormVehiculo();
+        i.setVisible(false);
+        c.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_btnvehiActionPerformed
+
+    private void btnfactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfactActionPerformed
+        FormInicio i = new FormInicio();
+        FormFactura c = new FormFactura();
+        i.setVisible(false);
+        c.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_btnfactActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,8 +183,10 @@ public class FormInicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnclie;
+    private javax.swing.JButton btncons;
+    private javax.swing.JButton btnfact;
+    private javax.swing.JButton btnvehi;
+    private javax.swing.JButton btnvend;
     // End of variables declaration//GEN-END:variables
 }

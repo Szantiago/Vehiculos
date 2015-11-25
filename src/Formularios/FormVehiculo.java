@@ -149,6 +149,11 @@ public class FormVehiculo extends javax.swing.JFrame {
         });
 
         btnvolver.setText("Volver");
+        btnvolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnvolverActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Estado");
 
@@ -467,6 +472,14 @@ public class FormVehiculo extends javax.swing.JFrame {
     private void txtestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtestadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtestadoActionPerformed
+
+    private void btnvolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvolverActionPerformed
+        FormInicio i = new FormInicio();
+        FormVehiculo c = new FormVehiculo();
+        c.setVisible(false);
+        i.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_btnvolverActionPerformed
 
     /**
      * @param args the command line arguments

@@ -80,11 +80,11 @@ public class ListVendedor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        ListVendedor list =new ListVendedor();
-        FormVendedor form = new FormVendedor();
-        form .setVisible(true);
-        list.setVisible(false);
-        setVisible(false);
+        FormInicio i = new FormInicio();
+        ListVendedor c = new ListVendedor();
+        c.setVisible(false);
+        i.setVisible(true);
+        setVisible(false);;
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

@@ -403,11 +403,10 @@ public class FormVendedor extends javax.swing.JFrame {
     }//GEN-LAST:event_txtconsvendActionPerformed
 
     private void btnvolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvolverActionPerformed
-       FormInicio h = new FormInicio();
-
-        FormVendedor c=new FormVendedor();
+       FormInicio i = new FormInicio();
+        FormVendedor c = new FormVendedor();
         c.setVisible(false);
-        h.setVisible(true);
+        i.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_btnvolverActionPerformed
 

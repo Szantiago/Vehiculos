@@ -67,11 +67,11 @@ public class FormConcesionario extends javax.swing.JFrame {
         btnbuscar = new javax.swing.JButton();
         txtID = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jComboEstado = new javax.swing.JComboBox<String>();
+        jComboEstado = new javax.swing.JComboBox<>();
         txtestado = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jComboC = new javax.swing.JComboBox<String>();
+        jComboC = new javax.swing.JComboBox<>();
         txtpoblado = new javax.swing.JTextField();
         mipobl = new javax.swing.JTextField();
 
@@ -127,7 +127,7 @@ public class FormConcesionario extends javax.swing.JFrame {
 
         jLabel6.setText("Estado");
 
-        jComboEstado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "activo", "inactivo" }));
+        jComboEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "activo", "inactivo" }));
         jComboEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboEstadoActionPerformed(evt);
@@ -135,6 +135,11 @@ public class FormConcesionario extends javax.swing.JFrame {
         });
 
         jButton1.setText("Volver");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Concesionario");
 
@@ -389,6 +394,15 @@ public class FormConcesionario extends javax.swing.JFrame {
             btnmodificar.setEnabled(true); // Se mantiene el botón actualizar como verdadero
         }
     }//GEN-LAST:event_jComboCActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        FormInicio i = new FormInicio();
+        FormConcesionario c = new FormConcesionario();
+        c.setVisible(false);
+        i.setVisible(true);
+        setVisible(false);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
